@@ -1,0 +1,24 @@
+<form #orderForm="ngForm" (ngSubmit)="onSubmit()">
+  <div class="mt-5">
+    <label for="customerName" class="block">
+      <span class="text-gray-700">CustomerName:</span>
+      <input id="customerName" name="coffeeType" type="text"
+             class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+             [(ngModel)]="orderMessage.customerName" required>
+    </label>
+  </div>
+  <div class="mt-5">
+    <label for="coffeeType" class="block">
+      <span class="text-gray-700">CoffeeType:</span>
+      <select id="coffeeType" name="coffeeType" [(ngModel)]="orderMessage.coffeeType" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md" required>
+        <option value="Cappuccino">Cappuccino</option>
+        <option value="Coffee">Coffee</option>
+        <option value="Latte Macchiato">Latte Macchiato</option>
+        <option value="Espresso">Espresso</option>
+      </select>
+    </label>
+  </div>
+  <div class="mt-5">
+    <button type="submit" [disabled]="!orderForm.valid" class="inline-flex items-center justify-center px-4 py-2 border border-transparent font-medium rounded-md text-green-700 bg-green-100 hover:bg-green-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:text-sm">Bestellen</button>
+  </div>
+</form>

@@ -1,0 +1,24 @@
+<div class="mt-5">
+  <label for="coffeeType" class="block">
+    <span class="text-gray-700">CoffeeType:</span>
+    <select id="coffeeType" name="coffeeType" [(ngModel)]="coffeeType"
+            class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+            required>
+      <option value="Cappuccino">Cappuccino</option>
+      <option value="Coffee">Coffee</option>
+      <option value="Latte Macchiato">Latte Macchiato</option>
+      <option value="Espresso">Espresso</option>
+    </select>
+  </label>
+
+  <div class="mt-5">
+    <button (click)="click('processing')"
+            class="mr-5 inline-flex items-center justify-center px-4 py-2 border border-transparent font-medium rounded-md text-yellow-700 bg-yellow-100 hover:bg-yellow-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500 sm:text-sm">
+      In Zubereitung
+    </button>
+    <button (click)="click('brewed')"
+            class="inline-flex items-center justify-center px-4 py-2 border border-transparent font-medium rounded-md text-green-700 bg-green-100 hover:bg-green-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:text-sm">
+      Zubereitet
+    </button>
+  </div>
+</div>
