@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {webSocket, WebSocketSubject} from 'rxjs/webSocket';
 import {scan} from 'rxjs/operators';
 import {Order} from './order.type';
-import { Observable } from 'rxjs';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'order-list',
@@ -16,30 +16,8 @@ export class OrderListComponent implements OnInit {
   ngOnInit(): void {
     this.coffees$ = this.socket$.pipe(
       scan((acc: Order[], value: Order) => {
-        if (!value.update) {
-          console.log('New');
-          return [...acc, value];
-        } else {
-          console.log('Update');
-          const index = acc.findIndex(o =>
-            o.customerName === value.customerName &&
-            o.coffeeType === value.coffeeType &&
-            o.state === this.previousState(value.state));
-          acc[index].state = value.state;
-          return acc;
-        }
+        return [...acc, value];
       }, [])
     );
-  }
-
-  private previousState(state: string): string {
-    switch (state) {
-      case 'PROCESSING':
-        return 'ORDERED';
-      case 'BREWED':
-        return 'PROCESSING';
-      default:
-        throw new Error('Unkown state');
-    }
   }
 }

@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'order-change',
@@ -8,10 +7,6 @@ import {HttpClient} from '@angular/common/http';
 export class OrderChangeComponent {
   public coffeeType = 'Coffee';
 
-  constructor(private httpClient: HttpClient) {
-  }
-
   public click(state: string): void {
-    this.httpClient.put(`http://localhost:4200/api/coffee/${state}/${this.coffeeType}`, {}).subscribe();
   }
 }
